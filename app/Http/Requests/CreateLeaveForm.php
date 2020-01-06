@@ -33,7 +33,7 @@ class CreateLeaveForm extends ResponsiveFormRequest
     public function persist()
     {
         $soldier = Soldier::findOrFail($this->soldier);
-        $leave = $soldier->leaves()->create($this->except('soldier'));
+        $leave = $soldier->leaves()->create($this->except('soldier', 'birthday'));
         $this->result = $leave;
 
         return $this;
